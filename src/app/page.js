@@ -1,95 +1,74 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
 
-export default function Home() {
+import { Button, Grid, Typography } from "@mui/material";
+import { useRouter } from "next/navigation";
+
+export default function Page() {
+  const router = useRouter();
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+    <Grid
+      container
+      alignItems={"center"}
+      justifyContent={"center"}
+      height={"100vh"}
+      item
+      xs={12}
+    >
+      <Grid
+        item
+        container
+        alignItems={"center"}
+        justifyContent={"center"}
+        width={{xs: "90vw", sm: "60vw", lg: "40vw", xl: "30vw"}}
+        height={{xs: "80vh", md: "70vh"}}
+        borderRadius={3}
+        border={"1px solid #FFF"}
+        gap={5}
+        padding={2}
+        direction={"column"}
+      >
+        <Grid
+          container
+          direction={"column"}
+          alignItems={"center"}
+          justifyContent={"center"}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+          <Typography>Hi, this is a simple page{" :)"} </Typography>
+          <Typography>Just Sign-in or Register </Typography>
+        </Grid>
+        <Button
+          style={{
+            color: "#BBE1FA",
+            borderColor: "#FFF",
+          }}
+          variant="outlined"
+          onClick={() => router.push("/login")}
         >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+          Sign-in
+        </Button>
+        <Button
+          style={{
+            color: "#BBE1FA",
+            borderColor: "#FFF",
+          }}
+          variant="outlined"
+          onClick={() => router.push("/register")}
         >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
+          Register
+        </Button>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Grid
+          item
+          textAlign={"center"}
+          style={{ padding: 20, marginTop: 5 }}
         >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+          <Typography>
+            NOTE: This is just a demo, so you can only register, login and
+            update your data :)
+          </Typography>
+        </Grid>
+      </Grid>
+    </Grid>
+  );
 }
